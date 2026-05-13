@@ -3,21 +3,21 @@ import { getImg,img }  from "@/data/Data";
 import Image from "next/image"
 
 
-// app/about/page.jsx
 export const metadata = {
-	title: "EtherealDreams",
+	title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
 	description:
-		"Learn about the vision behind EtherealDreams. The artist is specializing in automotive art, and dreamlike paintings.",
+	"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
 		"digital art bio",
-		"automotive artist",
+		"Automotive Photography",
 		"dreamlike paintings",
-		"EtherealDreams creator",
+		"Abstract",
 	],
 
 	openGraph: {
-				title: "Ethereal Dreams",		
-			description: "Explore dreamlike visuals and mystic art.",
+				title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",		
+	
+			description:"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 				url: "https://etherealdreams.vercel.app/",
 						siteName: "EtherealDreams",
 				
@@ -26,7 +26,7 @@ export const metadata = {
 				url: getImg(), 
 				width: 1200,
 				height: 630,
-				alt: "Digital Artist",
+				alt: "Gallery Preview",
 			},
 		],
         locale: "en_US",
