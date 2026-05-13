@@ -22,7 +22,8 @@ export const metadata = {
 				
 		images: [
 			{
-				url: getImg(), 
+				
+				url:`/api/og?title=EtherealDreams`,
 				width: 1200,
 				height: 630,
 				alt: "Gallery Preview",
