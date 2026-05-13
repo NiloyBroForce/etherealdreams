@@ -1,5 +1,3 @@
-<img width="1824" height="2736" alt="etherealdreams vercel app_(Surface Pro 7)" src="https://github.com/user-attachments/assets/5803d108-3b1b-4d3b-8a7e-86a2b626f0d6" />📜 License
-
 The source code is licensed under MIT, but all photography/art assets are Copyright © Niloy and may not be reused without permission.
 
 👤 Contact
