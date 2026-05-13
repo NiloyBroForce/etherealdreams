@@ -749,4 +749,7 @@ export const getCarsUrl = (link) =>
 export const getPaintUrl = (link) =>
   `${BASE}/Paintings/${encodeURIComponent(link)}`;
 
-export const getImg = ()=>`${BASE}/Atmosphere.jpg`;
+export const getImg = ()=>`${BASE}/preview.jpg`;
+
+export const img=()=>`${BASE}/Atmosphere.jpg`;
+

@@ -1,5 +1,5 @@
 import MyForm from "@/components/Form"
-import { getImg }  from "@/data/Data"; 
+import { getImg,img }  from "@/data/Data"; 
 import Image from "next/image"
 
 
