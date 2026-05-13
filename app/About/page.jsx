@@ -38,7 +38,7 @@ export default function About() {
     return (
         <>
             <Image
-                src={getImg()}
+                src={img()}
 				className="block mx-auto my-5 w-full max-w-200 h-auto"
                 alt="Ethereal Sky"
                 width={1920}
