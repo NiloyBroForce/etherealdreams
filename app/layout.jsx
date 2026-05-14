@@ -12,8 +12,8 @@ import ClientWrapper from "@/components/Layout";
 
 export const metadata = {
 	title: {
-    default: "EtherealDreams ",
-    template: "%s | EtherealDreams",
+    default: "EtherealDreams",
+    template: "EtherealDreams",
   },
 	description:
 	"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
