@@ -38,18 +38,18 @@ const GalleryImage = ({ image, onClick }) => {
           <div className="absolute inset-0 bg-neutral-800 animate-pulse z-0" />
         )}
 
-        <Image
-          src={src}
-          alt={image.title || "Artwork"}
-          width={image.fldWidth}
-          height={image.fldHeight}
-          sizes="(max-width: 768px) 50vw, 33vw"
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-					className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
-            isActive ? "scale-105" : "scale-100"
-          } ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        />
+      <Image
+					src={src}
+					alt={image.title || "Artwork"}
+					width={image.fldWidth}
+					height={image.fldHeight}
+					sizes="(max-width: 768px) 50vw, 33vw"
+					loading="lazy"
+					onLoad={() => setIsLoaded(true)}
+					className={`absolute top-0 left-0 w-full h-full object-cover block m-0 p-0 transition-all duration-300 ${
+						isActive ? "scale-105" : "scale-100"
+					} ${isLoaded ? "opacity-100" : "opacity-0"}`}
+				/>
 
        <div
 					className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
