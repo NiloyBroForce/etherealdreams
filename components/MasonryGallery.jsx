@@ -54,7 +54,7 @@ const MasonryGallery = ({ images = []}) => {
 
 	return (
 		<>
-			<div className="w-full px-2">
+			<div className="w-full px-2 pt-4 bg-[#101018]">
 				{rows.map((row, rowIndex) => (
 					<div
 						key={`row-${rowIndex}`}

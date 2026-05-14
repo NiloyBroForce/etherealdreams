@@ -46,7 +46,7 @@ const GalleryImage = ({ image, onClick }) => {
           sizes="(max-width: 768px) 50vw, 33vw"
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
-          className={`absolute top-0 left-0 w-full h-full object-cover block m-0 p-0 transition-all duration-300 ${
+					className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
             isActive ? "scale-105" : "scale-100"
           } ${isLoaded ? "opacity-100" : "opacity-0"}`}
         />
