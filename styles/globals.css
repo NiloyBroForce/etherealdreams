@@ -20,13 +20,11 @@
   
   --color-accent: hsl(187 100% 50%);
   
-  /* --- 2. Legacy Variable Mapping --- */
   --color-link: #13aff0;
   --color-body-lighter: #272730;
   --color-body-darker: #050506;
   --color-footer-bg: #18181c;
 
-  /* --- 3. Typography & Spacing --- */
    --font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "pt mono", "monospace";
   
@@ -36,7 +34,6 @@
   
   --radius-sm: 0.25rem;
   
-  /* --- 4. Custom Transitions/Animations --- */
   --transition-timing-function-ease-custom: cubic-bezier(0.45, 0.3, 0.15, 0.95);
 }
 *, *::before, *::after {
@@ -96,9 +93,6 @@
   }
 }
 
-/* --- 5. Component Classes --- */
-
-/* Custom Scrollbar */
 ::-webkit-scrollbar { @apply w-2.5; }
 ::-webkit-scrollbar-track { background: black; border: 1px solid black; }
 ::-webkit-scrollbar-thumb {
@@ -109,7 +103,6 @@
   background: linear-gradient(#338dff, #ff36e6);
 }
 
-/* Navigation */
 
 header { 
   @apply text-xl flex justify-between items-center flex-wrap mt-9 mb-30 px-5 py-0 w-full max-w-full box-border; 
@@ -125,7 +118,6 @@ header {
     color: var(--color-primary);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
-/* Forms */
 .input {
   @apply block w-full border bg-[#1a1a1a] text-white text-base transition-colors duration-300 mb-3 p-3 rounded-lg border-solid border-[#333] focus:border-primary focus:outline-none;
 }
@@ -133,17 +125,14 @@ header {
   @apply no-underline inline-block transition-colors duration-200 text-white cursor-pointer px-3 py-2 rounded-sm border-0 bg-link hover:bg-primary-dark;
 }
 
-/* Layout & Images */
 .section { @apply flex flex-col gap-6 text-center my-4 px-0 py-8; }
 .container-sm { @apply w-full mx-auto px-4 max-w-[51.25rem]; }
 .container-lg { @apply w-full mx-auto px-4 max-w-[78.125rem]; }
 
-/* Social Icons */
 .s-icon {
   @apply w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300
 }
 
-/* Visibility Classes */
 @media (max-width: 767px) { .hidden-phone { display: none; } }
 @media (min-width: 768px) and (max-width: 1023px) { .hidden-tablet { display: none; } }
 @media (min-width: 1024px) { .hidden-desktop { display: none; } }
