@@ -130,7 +130,7 @@ header {
 .container-lg { @apply w-full mx-auto px-4 max-w-[78.125rem]; }
 
 .s-icon {
-  @apply w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300
+  @apply w-10 h-10 rounded-full bg-white border border-white/20 flex items-center justify-center transition-all duration-300
 }
 
 @media (max-width: 767px) { .hidden-phone { display: none; } }
