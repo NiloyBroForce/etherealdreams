@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { getImg }  from "@/data/Data"; 
 import { Raleway } from "next/font/google";
 
 const raleway = Raleway({
@@ -7,16 +6,15 @@ const raleway = Raleway({
 	variable: "--font-raleway", 
 	display: "swap",
 });
-
 import ClientWrapper from "@/components/Layout";
 
 export const metadata = {
 	title: {
-    default: "EtherealDreams",
-    template: "EtherealDreams",
-  },
+		default: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
+		template: "%s | EtherealDreams",
+	},
 	description:
-	"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
+		"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
 		"digital art bio",
 		"Automotive Photography",
@@ -25,16 +23,16 @@ export const metadata = {
 	],
 
 	openGraph: {
-				title: "EtherealDreams ",		
-	
-			description:"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
-				url: "https://etherealdreams.vercel.app/",
-						siteName: "EtherealDreams",
-				
+		title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
+
+		description:
+			"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
+		url: "https://etherealdreams.vercel.app/",
+		siteName: "EtherealDreams",
+
 		images: [
 			{
-				
-				url:`/api/og?title=EtherealDreams`,
+				url: `/api/og?title=EtherealDreams`,
 				width: 1200,
 				height: 630,
 				alt: "Gallery Preview",
@@ -52,15 +50,19 @@ export const metadata = {
 		apple: "apple-touch-icon.png",
 	},
 };
-
+export const viewport = {
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 1,
+	userScalable: false,
+};
 export default function RootLayout({ children }) {
     return (
 			<html lang="en" className={raleway.variable} suppressHydrationWarning>
-				<body
-					className="flex flex-col min-h-screen"
-					suppressHydrationWarning
-				>
-					<ClientWrapper>{children}</ClientWrapper>
+				<body suppressHydrationWarning>
+					<div className="block min-h-screen overflow-x-hidden">
+						<ClientWrapper>{children}</ClientWrapper>
+					</div>
 				</body>
 			</html>
 		);
