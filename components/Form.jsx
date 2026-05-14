@@ -73,12 +73,12 @@ export default function MyForm() {
             />
             
               <form onSubmit={handleSubmit} style={{ margin: "auto", width: "60%" }}>
-				<p className="text-large text-white-500 text-center">
+				<p className="text-[18px] text-white-500 text-center">
 					A temporary traveler in this world. I have a passion for photography
 					and a deep interest for artwork. All of my work is original and
 					created by me. None of the content on this site is AI-generated.
 				</p>
-				<p className="text-large text-blue-500! text-center">
+				<p className="text-[20px] text-blue-500! text-center">
 					For further enquiries email me at rfb.rolling@gmail.com !
 				</p>
 

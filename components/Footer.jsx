@@ -83,7 +83,7 @@ export default function Footer() {
 					</div>
 
 					{/* 3. Copyright (Right) */}
-					<div className="text-foreground-muted text-[11px] uppercase tracking-widest md:text-right pr-15 opacity-60">
+					<div className="text-foreground-muted uppercase text-gray-400 text-sm text-center md:text-right md:mr-12 lining-nums">
 						©2026 All rights reserved
 					</div>
 				</div>

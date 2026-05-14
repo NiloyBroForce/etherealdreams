@@ -1,5 +1,12 @@
 import "@/styles/globals.css";
 import { getImg }  from "@/data/Data"; 
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({
+	subsets: ["latin"],
+	variable: "--font-raleway", 
+	display: "swap",
+});
 
 import ClientWrapper from "@/components/Layout";
 
@@ -36,12 +43,23 @@ export const metadata = {
 		locale: "en_US",
 		type: "website",
 	},
+	icons: {
+		icon: [
+			{ url: "favicon-96x96.png", sizes: "96x96", type: "image/png" },
+			{ url: "favicon.svg", type: "image/svg+xml" },
+		],
+		shortcut: "favicon.ico",
+		apple: "apple-touch-icon.png",
+	},
 };
 
 export default function RootLayout({ children }) {
     return (
-			<html lang="en" suppressHydrationWarning>
-				<body className="flex flex-col min-h-screen" suppressHydrationWarning>
+			<html lang="en" className={raleway.variable} suppressHydrationWarning>
+				<body
+					className="flex flex-col min-h-screen"
+					suppressHydrationWarning
+				>
 					<ClientWrapper>{children}</ClientWrapper>
 				</body>
 			</html>
