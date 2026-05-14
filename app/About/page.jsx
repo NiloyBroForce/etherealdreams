@@ -4,7 +4,7 @@ import Image from "next/image"
 
 
 export const metadata = {
-	title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
+	title: "EtherealDreams ",
 	description:
 	"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
@@ -15,7 +15,7 @@ export const metadata = {
 	],
 
 	openGraph: {
-				title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",		
+				title: "EtherealDreams ",		
 	
 			description:"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 				url: "https://etherealdreams.vercel.app/",

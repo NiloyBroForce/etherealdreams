@@ -2,7 +2,7 @@ import Index from "@/components/Index";
 import { carData,  getCarsUrl, } from "@/data/Data"; 
 
 export const metadata = {
-	title: "CarCanvas | Surreal Automotive Visual Art",
+	title: "CarCanvas",
 	description:
 	"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
@@ -13,7 +13,7 @@ export const metadata = {
 	],
 
 	openGraph: {
-				title: "CarCanvas | Surreal Automotive Visual Art",		
+				title: "CarCanvas",		
 	
 			description:"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 				url: "https://etherealdreams.vercel.app/",

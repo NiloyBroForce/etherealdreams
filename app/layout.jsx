@@ -12,7 +12,7 @@ import ClientWrapper from "@/components/Layout";
 
 export const metadata = {
 	title: {
-    default: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
+    default: "EtherealDreams ",
     template: "%s | EtherealDreams",
   },
 	description:
@@ -25,7 +25,7 @@ export const metadata = {
 	],
 
 	openGraph: {
-				title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",		
+				title: "EtherealDreams ",		
 	
 			description:"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 				url: "https://etherealdreams.vercel.app/",
