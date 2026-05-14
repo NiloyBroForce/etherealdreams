@@ -51,19 +51,19 @@ const GalleryImage = ({ image, onClick }) => {
           } ${isLoaded ? "opacity-100" : "opacity-0"}`}
         />
 
-        <div
-          className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-300 ${
-            isActive ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <h3 className="text-[clamp(1rem,4vw,1.5rem)] text-white font-semibold uppercase leading-tight mb-5">
-            {image.title}
-          </h3>
-          <div className="w-[3.125rem] h-[0.3rem] bg-cyan-400" />
-        </div>
-      </div>
-    </div>
-  );
+       <div
+					className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
+						isActive ? "opacity-100" : "opacity-0"
+					}`}
+				>
+					<h3 className="text-[clamp(1rem,4vw,1.5rem)] text-white font-semibold uppercase leading-tight mb-5">
+						{image.title}
+					</h3>
+					<div className="w-[3.125rem] h-[0.3rem] bg-cyan-400" />
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default GalleryImage;
