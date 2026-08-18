@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { getImg } from "@/data/Data"; 
 import Image from "next/image";
 
-export const runtime = 'edge'; 
+export const runtime = 'nodejs'; 
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
