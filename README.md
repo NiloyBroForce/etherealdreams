@@ -17,7 +17,7 @@ A high-performance, dark-themed digital automotive art gallery. This project sho
 *   Responsive Design: Fully fluid layouts that look great on everything
 
 🛠️ Tech Stack
-Framework: [Next.js 15](https://nextjs.org/) (App Router)
+Framework: [Next.js 16](https://nextjs.org/) (App Router)
 Styling: [Tailwind CSS v4](https://tailwindcss.com/)
 Icons: [Lucide React](https://lucide.dev/)
 Animations: Framer Motion / CSS Transitions

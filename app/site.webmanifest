@@ -1,0 +1,148 @@
+{
+  "id": "/",
+  "name": "EtherealDreams",
+  "short_name": "EtherealDreams",
+  "description": "An ethereal digital art gallery showcasing creative original photography.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "tabbed",
+    "window-controls-overlay"
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["art", "photo", "graphics"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [
+        { "pathname": "/" }
+      ]
+    },
+    "new_tab_button": {
+      "url": "/"
+    }
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "icons": [
+    {
+      "src": "/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-gallery.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "EtherealDreams Digital Gallery View"
+    },
+    {
+      "src": "/screenshots/desktop-gallery2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "EtherealDreams Digital Gallery View"
+    },
+    {
+      "src": "/screenshots/mobile-gallery.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "EtherealDreams Mobile Gallery View"
+    },
+    {
+      "src": "/screenshots/mobile-gallery2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "EtherealDreams Mobile Gallery View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dreamcanvas",
+      "short_name": "Dreamcanvas",
+      "description": "Jump straight into the canvas gallery workspace",
+      "url": "/dream",
+      "icons": [
+        { 
+          "src": "/favicon/web-app-manifest-192x192.png", 
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Carcanvas",
+      "short_name": "Carcanvas",
+      "description": "Jump straight into the automotive gallery workspace",
+      "url": "/car-canvas",
+      "icons": [
+        { 
+          "src": "/favicon/web-app-manifest-192x192.png", 
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "About the Artist",
+      "short_name": "About",
+      "description": "Learn more about the idea behind EtherealDreams",
+      "url": "/about",
+      "icons": [
+        { 
+          "src": "/favicon/web-app-manifest-192x192.png", 
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "name": "EtherealDreams Feature",
+      "short_name": "Art icon",
+      "description": "Check out the latest digital art showcase updates directly on your desktop.",
+      "tag": "art",
+      "ms_ac_template": "/widgets/template.json",
+      "data": "/widgets/data.json",
+      "type": "application/json",
+      "update": 14400,
+      "multiple": false,
+      "screenshots": [
+        {
+          "src": "/screenshots/widget-preview.png",
+          "sizes": "400x300",
+          "type": "image/png",
+          "label": "Desktop Gallery Widget Preview"
+        }
+      ],
+      "icons": [
+        {
+          "src": "/favicon/web-app-manifest-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
