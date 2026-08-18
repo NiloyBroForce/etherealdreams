@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import NotificationBell from './Push';
 
-export default function Header({ isActive }) {
+export default function Header() {
  	const pathname = usePathname();
  
   const isActive = (path) => pathname === path;
