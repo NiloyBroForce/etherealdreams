@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Abstract",
   ],
 
-  manifest: "/manifest.webmanifest",
+  manifest: "/site.webmanifest",
 
   openGraph: {
     title: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
