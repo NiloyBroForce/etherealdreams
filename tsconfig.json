@@ -1,3 +1,5 @@
+
+
 {
   "compilerOptions": {
     "target": "ES2017",
@@ -28,7 +30,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
-  "exclude": ["node_modules"]
+    "**/*.mts" ],
+    "exclude": ["node_modules", "app/sw.ts"]
 }
