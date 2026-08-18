@@ -48,7 +48,8 @@ export default function Footer() {
 						<a
 							href="https://www.facebook.com/rafin.islam.niloy.2024"
 							target="_blank"
-							rel="noreferrer"
+              rel="noreferrer"
+							aria-label="Visit Facebook Profile"
 							className="group s-icon hover:bg-linear-to-br hover:from-[#1877F2] hover:via-[#1800F2] hover:to-[#1823F2] hover:border-transparent hover:shadow-[0_0_20px_rgba(24,119,242,0.4)]"
 						>
 							<svg
@@ -64,7 +65,8 @@ export default function Footer() {
 						<a
 							href="https://www.instagram.com/niloy_of_rivia/"
 							target="_blank"
-							rel="noreferrer"
+              rel="noreferrer"
+							aria-label="Visit Instagram Profile"
 							className="group s-icon hover:bg-linear-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:border-transparent hover:shadow-[0_0_20px_rgba(230,104,60,0.4)]"
 						>
 							<svg
