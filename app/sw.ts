@@ -17,13 +17,6 @@ declare global {
 
 declare const self: ServiceWorkerGlobalScope;
 
-// ─────────────────────────────────────────────
-// Push notification
-// ─────────────────────────────────────────────
-// ─────────────────────────────────────────────
-// Push notification
-// ─────────────────────────────────────────────
-
 interface PushPayload {
   title?: string;
   body?: string;
