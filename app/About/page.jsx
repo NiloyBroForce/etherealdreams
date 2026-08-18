@@ -50,7 +50,8 @@ export default function About() {
 				className="block mx-auto my-8 w-400 max-w-800 md:w-[900px] h-auto"
                 alt="Ethereal Sky"
                 width={1920}
-                height={1080}
+          height={1080}
+          unoptimized
             />
                 <MyForm />
         </>

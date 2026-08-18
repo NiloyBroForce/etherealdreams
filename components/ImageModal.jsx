@@ -66,7 +66,8 @@ const ImageModal = ({ image,onClose, onPrev, onNext }) => {
 					height={image.fldHeight}
 					priority
 					onContextMenu={(e) => e.preventDefault()}
-					className="max-w-full max-h-[85vh] object-contain w-auto h-auto"
+          className="max-w-full max-h-[85vh] object-contain w-auto h-auto"
+					unoptimized
 				/>
 
 				<div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">

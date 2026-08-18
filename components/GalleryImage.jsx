@@ -48,7 +48,8 @@ const GalleryImage = ({ image, onClick }) => {
 					onLoad={() => setIsLoaded(true)}
 					className={`absolute top-0 left-0 w-full h-full object-cover block m-0 p-0 transition-all duration-300 ${
 						isActive ? "scale-105" : "scale-100"
-					} ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            } ${isLoaded ? "opacity-100" : "opacity-0"}`}
+					unoptimized
 				/>
 
        <div
