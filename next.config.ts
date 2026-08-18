@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
+import withSerwistInit from "@serwist/next";
+
 
 const nextConfig: NextConfig = {
+	turbopack: {},
   images: {
     remotePatterns: [
       {
@@ -10,8 +13,15 @@ const nextConfig: NextConfig = {
     ],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
 };
 
-export default nextConfig;
+const withSerwist = withSerwistInit({
+  swSrc: "app/sw.ts",
+  swDest: "public/sw.js",
+  disable: process.env.NODE_ENV === "development", // Disable caching in local development
+});
+
+export default withSerwist(nextConfig);

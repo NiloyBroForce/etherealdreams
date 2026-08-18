@@ -12,7 +12,8 @@ export const metadata = {
 	title: {
 		default: "EtherealDreams | Surreal Automotive & Abstract Visual Art",
 		template: "%s | EtherealDreams",
-	},
+  },
+	manifest: '/site.webmanifest',
 	description:
 		"A curated collection of dreamlike automotive photography, paintings and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
