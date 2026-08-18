@@ -107,9 +107,14 @@
 header { 
   @apply text-xl flex justify-between items-center flex-wrap mt-9 mb-30 px-5 py-0 w-full max-w-full box-border; 
 }
-.left-links { @apply flex gap-5 flex-wrap; }
+.left-links {
+  /* Smaller gap and horizontal scroll/wrap control for mobile */
+  @apply flex gap-2 sm:gap-3 flex-wrap items-center;
+}
+
 .link {
-  @apply text-[18px] md:text-[24px] text-white transition-colors duration-500 no-underline whitespace-nowrap hover:text-indigo-500;
+  /* Scaled text size and expanded touch padding for mobile devices */
+  @apply text-[15px] sm:text-[18px] md:text-[24px] text-white transition-colors duration-500 no-underline whitespace-nowrap hover:text-indigo-500 py-1 px-1.5 sm:p-0;
   font-family: var(--font-sans);
 }
 .link.active { @apply text-link; }
