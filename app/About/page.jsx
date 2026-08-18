@@ -47,7 +47,7 @@ export default function About() {
         <>
             <Image
                 src={img()}
-				className="block mx-auto my-8 w-full max-w-full md:w-[900px] h-auto"
+				className="block mx-auto my-8 w-400 max-w-full md:w-[900px] h-auto"
                 alt="Ethereal Sky"
                 width={1920}
                 height={1080}

@@ -21,8 +21,6 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 export default function NotificationBell() {
-
-  
   const [open, setOpen] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -84,54 +82,76 @@ export default function NotificationBell() {
   }
  
   return (
-    <div ref={wrapRef} className="bell-wrap">
+    <div ref={wrapRef} className="relative inline-flex">
       <button
+        type="button"
         onClick={() => !subscribed && setOpen((o) => !o)}
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-label="Notifications"
         disabled={subscribed}
-        className="bell-btn"
+        className="relative inline-flex h-8 w-8 sm:h-9 sm:w-9 appearance-none items-center justify-center rounded-lg border border-white/10 bg-white/[0.06] text-white/85 outline-none transition-colors hover:border-white/20 hover:bg-white/[0.1] active:scale-95 disabled:cursor-default"
       >
-        <Bell size={18} strokeWidth={1.75} />
-        {subscribed && <span className="bell-dot" />}
+        <Bell size={17} strokeWidth={1.75} />
+        {subscribed && (
+          <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0b0b10]" />
+        )}
       </button>
  
-      <div role="dialog" aria-modal="true" className={`bell-popup ${open ? "is-open" : ""}`}>
-        <div className="bell-card">
+      <div
+        role="dialog"
+        aria-modal="true"
+        className={`absolute right-full top-1/2 z-50 mr-2 w-64 max-w-[80vw] -translate-y-1/2 transition-all duration-150 ease-out ${
+          open
+            ? "pointer-events-auto translate-x-0 opacity-100"
+            : "pointer-events-none translate-x-2 opacity-0"
+        }`}
+      >
+        <div className="relative rounded-xl border border-white/10 bg-neutral-900/95 p-3.5 text-white shadow-2xl backdrop-blur-xl">
           {subscribed ? (
-            <div className="bell-row">
-              <span className="bell-check">
-                <Check size={14} strokeWidth={2.5} />
+            <div className="flex items-center gap-2">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-400">
+                <Check size={13} strokeWidth={2.5} />
               </span>
-              <p className="bell-title">Notifications enabled</p>
+              <p className="text-sm font-medium text-white/90">Notifications enabled</p>
             </div>
           ) : (
             <>
-              <p className="bell-title">Turn on notifications?</p>
-              <p className="bell-sub">
+              <p className="text-sm font-medium text-white/90">Turn on notifications?</p>
+              <p className="mt-1 text-xs leading-relaxed text-white/50">
                 You&apos;ll get alerts for updates and messages. You can turn this off anytime.
               </p>
               {error && (
-                <div className="bell-error">
-                  <AlertTriangle size={12} strokeWidth={2} />
+                <div className="mt-2 flex items-start gap-1.5 rounded-lg bg-red-400/10 px-2 py-1.5 text-xs text-red-300">
+                  <AlertTriangle size={12} strokeWidth={2} className="mt-0.5 flex-shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
-              <div className="bell-actions">
-                <button onClick={() => setOpen(false)} className="bell-btn-ghost">
+              <div className="mt-3 flex justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-3 py-1.5 text-xs font-medium text-white/60 transition-colors hover:bg-white/[0.06] hover:text-white/90"
+                >
                   Not now
                 </button>
-                <button onClick={handleEnable} disabled={loading} className="bell-btn-solid">
+                <button
+                  type="button"
+                  onClick={handleEnable}
+                  disabled={loading}
+                  className="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-neutral-900 transition-all hover:bg-white/90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+                >
                   {loading ? "Enabling…" : "Turn on"}
                 </button>
               </div>
             </>
           )}
+          <div
+            className="absolute right-[-6px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-r border-t border-white/10 bg-neutral-900/95"
+            style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
+          />
         </div>
-        <div className="bell-arrow" />
       </div>
     </div>
   );
 }
- 
