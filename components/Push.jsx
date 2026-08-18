@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect ,useState  } from "react";
-
+import { useEffect ,useState ,useRef } from "react";
+import { Bell, Check, AlertTriangle } from "lucide-react";
 const VAPID_PUBLIC_KEY ="BE3PSQtBMa66s8h0mhllVDdxIS3lWT0S8M6tPH-K3VTnANKJiK1HYcdrfR1FiSsJI7-WgPPSKEipQuiXAcPq4m8";
 
-function urlBase64ToUint8Array(base64String: string) {
+function urlBase64ToUint8Array(base64String) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding)
     .replace(/-/g, "+")
