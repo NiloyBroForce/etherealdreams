@@ -1,6 +1,5 @@
 import Index from "@/components/Index";
 import { canvasData,getPaintUrl } from "@/data/Data"; 
-import { getImg }  from "@/data/Data"; 
 
 export const metadata = {
 	title: "EtherealDreams",
