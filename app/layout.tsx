@@ -3,6 +3,8 @@ import { Raleway } from "next/font/google";
 import ClientWrapper from "@/components/Layout";
 import type { Metadata, Viewport } from "next";
 import { InstallBanners } from "@/components/Banner";
+import { ImageWarmup } from '@/components/ImageCache';
+import { list } from '@vercel/blob';
 
 const raleway = Raleway({
 	subsets: ["latin"],
@@ -66,12 +68,16 @@ export const viewport:Viewport = {
 	initialScale: 1,
 	maximumScale: 1,
 };
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { blobs } = await list();
+    const imageUrls = blobs.map((blob) => blob.url);
     return (
 			<html lang="en" className={raleway.variable} suppressHydrationWarning>
 				<body suppressHydrationWarning>
-					<div className="block min-h-screen overflow-x-hidden">
-						<ClientWrapper>{children}
+          <div className="block min-h-screen overflow-x-hidden">
+            <ImageWarmup imageUrls={imageUrls} />
+            <ClientWrapper>
+              {children}
 						   </ClientWrapper>
 					</div>
             <InstallBanners />  

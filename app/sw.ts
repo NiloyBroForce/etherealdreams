@@ -4,9 +4,7 @@ import { defaultCache } from "@serwist/next/worker";
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
 import {
   CacheFirst,
-  ExpirationPlugin,
   Serwist,
-  StaleWhileRevalidate,
 } from "serwist";
 
 declare global {
@@ -81,42 +79,26 @@ const serwist = new Serwist({
   navigationPreload: true,
 
   runtimeCaching: [
-    {
-      matcher: ({ url }) =>
-        url.pathname.endsWith("/images.json") ||
-        url.pathname === "/api/images",
-
-      handler: new StaleWhileRevalidate({
-        cacheName: "image-routes-json-cache",
-
-        plugins: [
-          new ExpirationPlugin({
-            maxEntries: 10,
-            maxAgeSeconds: 7 * 24 * 60 * 60,
-          }),
-        ],
-      }),
-    },
-
-    {
-      matcher: ({ request, url }) =>
-        request.destination === "image" ||
-        url.hostname.includes("public.blob.vercel-storage.com"),
-
-      handler: new CacheFirst({
-        cacheName: "gallery-images-cache",
-
-        plugins: [
-          new ExpirationPlugin({
-            maxEntries: 60,
-            maxAgeSeconds: 30 * 24 * 60 * 60,
-          }),
-        ],
-      }),
-    },
-
-    ...defaultCache,
-  ],
-});
+      ...defaultCache,
+      {
+        // Match Vercel Blob URLs
+        matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
+        handler: new CacheFirst({
+          cacheName: 'vercel-blob-images',
+          plugins: [
+            {
+              // Cache HTTP 0 (opaque CORS) and HTTP 200 responses
+              cacheWillUpdate: async ({ response }) => {
+                if (response && (response.status === 200 || response.status === 0)) {
+                  return response;
+                }
+                return null;
+              },
+            },
+          ],
+        }),
+      },
+    ],
+  });
 
 serwist.addEventListeners();
