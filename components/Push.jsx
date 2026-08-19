@@ -97,15 +97,14 @@ export default function NotificationBell() {
           <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0b0b10]" />
         )}
       </button>
- 
+  
       <div
         role="dialog"
         aria-modal="true"
-        className={`absolute right-full top-1/2 z-50 mr-2 w-64 max-w-[80vw] -translate-y-1/2 transition-all duration-150 ease-out ${
-          open
-            ? "pointer-events-auto translate-x-0 opacity-100"
-            : "pointer-events-none translate-x-2 opacity-0"
-        }`}
+        className={`absolute right-0 top-full z-50 mt-2.5 w-64 max-w-[80vw] transition-all duration-200 cubic-bezier(0.16,1,0.3,1) origin-top-right ${open
+            ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
+            : "pointer-events-none -translate-y-2 scale-95 opacity-0"
+          }`}
       >
         <div className="relative rounded-xl border border-white/10 bg-neutral-900/95 p-3.5 text-white shadow-2xl backdrop-blur-xl">
           {subscribed ? (
@@ -146,10 +145,9 @@ export default function NotificationBell() {
               </div>
             </>
           )}
-          <div
-            className="absolute right-[-6px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-r border-t border-white/10 bg-neutral-900/95"
-            style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
-          />
+          
+          {/* Pointer Arrow pointing UP */}
+          <div className="absolute -top-1.5 right-3 h-3 w-3 rotate-45 border-l border-t border-white/10 bg-neutral-900/95" />
         </div>
       </div>
     </div>

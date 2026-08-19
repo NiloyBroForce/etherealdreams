@@ -72,27 +72,27 @@ export default function About() {
         </div>
 
         {/* Statement side */}
-        <div className="flex flex-col justify-center gap-8 px-8 py-16 sm:px-14 lg:px-16 lg:py-0">
-          <span className="text-xs font-[family-name:var(--font-body)] uppercase tracking-[0.35em] text-cyan-300/80">
+        <div className="flex flex-col justify-center gap-5 px-6 py-12 sm:px-12 lg:px-16 lg:py-12">
+          <span className="text-[11px] font-[family-name:var(--font-body)] uppercase tracking-[0.35em] text-cyan-300/80">
             About
           </span>
-
-          <h1 className="font-[family-name:var(--font-display)] text-[13vw] leading-[0.94] tracking-tight sm:text-6xl lg:text-[4.5vw] xl:text-7xl">
-            Transient 
+        
+          <h1 className="-mt-2 font-[family-name:var(--font-display)] text-[10vw] leading-[0.96] tracking-tight sm:text-5xl lg:text-[3.8vw] xl:text-6xl">
+            Transient{" "}
             <br />
             <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-400 bg-clip-text text-transparent">
               traveler
-            </span>
+            </span>{" "}
             <br />
             leaving behind the best of what I learned.
           </h1>
-
-          <p className="max-w-md font-[family-name:var(--font-body)] text-lg leading-relaxed text-white/55">
+        
+          <p className="max-w-md font-[family-name:var(--font-body)] text-base leading-relaxed text-white/55">
             I have a passion for photography and a deep interest in artwork.
             All of my photography work is original and created by me.
           </p>
-
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-[family-name:var(--font-body)] text-xs uppercase tracking-[0.2em] text-white/70">
+        
+          <div className="-mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 font-[family-name:var(--font-body)] text-[11px] uppercase tracking-[0.2em] text-white/70">
             <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-400" />
             No AI-generated artwork
           </div>
