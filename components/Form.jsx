@@ -73,7 +73,7 @@ export default function MyForm() {
         />
         <div className="section pt-2 flex flex-col gap-4">
             <p className="text-center text-sm font-[family-name:var(--font-body)] font-medium uppercase tracking-[0.2em] text-white">
-                Send me a message
+                Have thoughts on the gallery? Let me know!
               </p></div>
               <form onSubmit={handleSubmit} style={{ margin: "auto", width: "60%" }}>
 				<div id="get" className="section">
