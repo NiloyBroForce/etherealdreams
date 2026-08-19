@@ -70,11 +70,11 @@ export default function MyForm() {
             <Script
                 src={`https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`}
                 strategy="afterInteractive"
-            />
+        />
+        <div className="section pt-12 flex flex-col gap-4">
             <p className="text-center text-sm font-[family-name:var(--font-body)] font-medium uppercase tracking-[0.2em] text-white">
                 Send me a message
-        </p>
-        
+              </p></div>
               <form onSubmit={handleSubmit} style={{ margin: "auto", width: "60%" }}>
 				<div id="get" className="section">
 					<label className="text-primary">
