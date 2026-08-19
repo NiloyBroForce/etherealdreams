@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og';
 import { getImg } from "@/data/Data"; 
-import Image from "next/image";
 
 export const runtime = 'nodejs'; 
 
@@ -22,7 +21,7 @@ export async function GET(request) {
           position: 'relative',
         }}
       >
-        <Image
+        <img 
           src={getImg()} 
           style={{ 
             position: 'absolute', 
