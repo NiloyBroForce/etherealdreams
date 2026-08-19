@@ -139,13 +139,34 @@
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
-    background: linear-gradient(90deg, #cbb9ff 0%, #f5d9ff 45%, #9fd6ff 100%);
+  
+    /* Expanded 200% width gradient with a bright white highlight center */
+    background: linear-gradient(
+      110deg,
+      #cbb9ff 0%,
+      #f5d9ff 35%,
+      #ffffff 50%,
+      #9fd6ff 65%,
+      #cbb9ff 100%
+    );
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 0 0 22px rgba(180, 160, 255, 0.3);
+  
+    /* Continuous shimmer animation */
+    animation: shimmer 6s infinite linear;
   }
-
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
   /* Bell Button & Wrapper */
   .bell-wrap {
     position: relative;

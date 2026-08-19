@@ -23,7 +23,7 @@ export default function Header() {
         <span className="brand-title">EtherealDreams</span>
    
         <div className="right-group">
-          <NotificationBell />
+          <NotificationBell  className="bell-popup"/>
           <Link href="/About" className={`link ${isActive("/About") ? "active" : ""}`}>
             About
           </Link>
