@@ -24,6 +24,7 @@ Animations: Framer Motion / CSS Transitions
 Deployment: Vercel
 
 📸 Preview
-<img width="1824" height="2736" alt="CarCanvas" src="https://github.com/user-attachments/assets/4654a44d-1b44-404a-a280-e9c0841476e6" />
-<img width="2048" height="2732" alt="DreamCanvas" src="https://github.com/user-attachments/assets/261cefd5-ea10-4b56-bf95-db2ebadb0e9c" />
+<img width="1920" height="1080" alt="Dreamcanvas" src="https://github.com/user-attachments/assets/1d36ae9a-b6fb-42ff-9e2a-1eb12e23c83e" />
+<img width="1920" height="1080" alt="Carcanvas" src="https://github.com/user-attachments/assets/796a5a7d-615d-48a8-b359-ce98cfc8f912" />
+
 
