@@ -93,11 +93,24 @@
 
 /* Custom Component Classes */
 @layer components {
-  /* Updated Navigation Links (New Version Kept) */
-  .link {
-    @apply text-[15px] sm:text-[18px] md:text-[24px] text-white transition-all duration-300 font-medium px-1 py-[3px] border-b-2 border-transparent hover:border-white opacity-80 hover:opacity-100;
+  .site-header {
+    @apply grid grid-cols-[1fr_auto_1fr] items-center gap-3 w-full;
+    padding: 14px clamp(14px, 4vw, 32px);
+    background: var(--color-header-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  .link {
+    @apply text-[15px] sm:text-[18px] md:text-[24px] font-medium px-1 py-[3px] border-b-2 border-transparent transition-all duration-300 opacity-80 text-white;
+
+    &:hover {
+      @apply opacity-100 border-white bg-clip-text text-transparent bg-gradient-to-r from-[#642bff] to-[#ff22e6];
+    }
+
+    &.active {
+      @apply opacity-100 border-white bg-clip-text text-transparent bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-primary-dark)];
+    }
+  }
   /* Updated Left Links Wrapper (New Version Kept) */
   .left-links {
     @apply flex gap-2 sm:gap-3 flex-wrap items-center;
