@@ -71,9 +71,10 @@ export default function MyForm() {
                 src={`https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`}
                 strategy="afterInteractive"
             />
-        <p className="text-sm font-[family-name:var(--font-body)] font-medium uppercase tracking-[0.2em] text-cyan-300/80">
-            Send me a message!
-          </p>
+            <p className="text-center text-sm font-[family-name:var(--font-body)] font-medium uppercase tracking-[0.2em] text-white">
+                Send me a message
+        </p>
+        
               <form onSubmit={handleSubmit} style={{ margin: "auto", width: "60%" }}>
 				<div id="get" className="section">
 					<label className="text-primary">
