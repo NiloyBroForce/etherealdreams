@@ -78,13 +78,13 @@ export default function About() {
           </span>
 
           <h1 className="font-[family-name:var(--font-display)] text-[13vw] leading-[0.94] tracking-tight sm:text-6xl lg:text-[4.5vw] xl:text-7xl">
-            A temporary
+            Transient 
             <br />
             <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-400 bg-clip-text text-transparent">
               traveler
             </span>
             <br />
-            in this world.
+            leaving behind the best of what I learned.
           </h1>
 
           <p className="max-w-md font-[family-name:var(--font-body)] text-lg leading-relaxed text-white/55">
