@@ -4,7 +4,7 @@ import Image from "next/image";
 
 
 export const metadata = {
-	title: "EtherealDreams ",
+	title: "About ",
 	description:
 	"A curated collection of dreamlike automotive photography and refractive visual studies. Explore the intersection of light, reflection, and shadow in these abstract landscapes.",
 	keywords: [
@@ -89,12 +89,12 @@ export default function About() {
 
           <p className="max-w-md font-[family-name:var(--font-body)] text-lg leading-relaxed text-white/55">
             I have a passion for photography and a deep interest in artwork.
-            All of my work is original and created by me.
+            All of my photography work is original and created by me.
           </p>
 
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-[family-name:var(--font-body)] text-xs uppercase tracking-[0.2em] text-white/70">
             <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-400" />
-            No AI-generated content
+            No AI-generated artwork
           </div>
         </div>
       </div>
