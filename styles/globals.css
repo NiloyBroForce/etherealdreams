@@ -4,7 +4,12 @@
   --color-primary: hsl(187 100% 50%);
   --color-primary-foreground: hsl(0 0% 5%);
   --color-primary-dark: #0c8ec4; 
-
+  --font-script: "Snell Roundhand", "Segoe Script", "Brush Script MT", "Bradley Hand", "Apple Chancery", cursive;
+  
+  /* Custom Colors & Values */
+  --color-header-bg: #0b0b10;
+  --color-card-bg: rgba(23, 23, 27, 0.97);
+  --color-emerald-dot: #34d399;
   --color-background: #0b0b0e;
   --color-foreground: hsl(0 0% 95%);
   --color-foreground-muted: #bbbbbb;
@@ -25,7 +30,7 @@
   --color-body-darker: #050506;
   --color-footer-bg: #18181c;
 
-   --font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "pt mono", "monospace";
   
   --spacing-gallery: 8px;
@@ -36,20 +41,12 @@
   
   --transition-timing-function-ease-custom: cubic-bezier(0.45, 0.3, 0.15, 0.95);
 }
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+
+/* Base Styles */
 @layer base {
   *, ::after, ::before {
-    box-sizing: border-box;
     border-color: var(--color-border);
-
   }
-.gallery-item {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  user-select: none;
-}
 
   body {
     background-color: var(--color-background);
@@ -61,7 +58,6 @@
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    -ms-touch-action: manipulation;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -77,22 +73,285 @@
   a {
     color: var(--color-link);
     text-decoration: none;
-    font-size:24px;
     transition: color 0.25s var(--transition-timing-function-ease-custom);
-  }
 
-  a:hover {
-    color: var(--color-primary-dark);
+    &:hover {
+      color: var(--color-primary-dark);
+    }
   }
 
   code, pre {
-    @apply border block my-5 px-4 py-2;
-    border-color: black;
+    @apply border block my-5 px-4 py-2 border-black;
     font-family: var(--font-mono);
     background-color: var(--color-body-darker);
   }
+
+  header {
+    @apply text-xl flex justify-between items-center bg-[color:var(--color-header-bg)] shadow-[0_2px_4px_rgba(0,0,0,0.1)];
+  }
 }
 
+/* Custom Component Classes */
+@layer components {
+  /* Updated Navigation Links (New Version Kept) */
+  .link {
+    @apply text-[15px] sm:text-[18px] md:text-[24px] text-white transition-all duration-300 font-medium px-1 py-[3px] border-b-2 border-transparent hover:border-white opacity-80 hover:opacity-100;
+  }
+
+  /* Updated Left Links Wrapper (New Version Kept) */
+  .left-links {
+    @apply flex gap-2 sm:gap-3 flex-wrap items-center;
+  }
+
+  .right-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: 0;
+
+    @media (min-width: 480px) {
+      gap: clamp(8px, 2vw, 18px);
+    }
+  }
+
+  /* Brand Title */
+  .brand-title {
+    justify-self: center;
+    font-family: var(--font-script);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    background: linear-gradient(90deg, #cbb9ff 0%, #f5d9ff 45%, #9fd6ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 22px rgba(180, 160, 255, 0.3);
+  }
+
+  /* Bell Button & Wrapper */
+  .bell-wrap {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .bell-btn {
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    background-clip: padding-box;
+    color: rgba(255, 255, 255, 0.85);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover:not(:disabled) {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+
+    &:disabled {
+      cursor: default;
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  .bell-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-emerald-dot);
+    box-shadow: 0 0 0 2px var(--color-header-bg);
+  }
+
+  /* Popup Card */
+  .bell-popup {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translate(8px, -50%);
+    margin-right: 10px;
+    width: min(260px, 80vw);
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease-out;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .bell-card {
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-card-bg);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    padding: 14px;
+    color: #fff;
+  }
+
+  .bell-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+  }
+
+  .bell-sub {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 4px 0 0;
+  }
+
+  .bell-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: rgba(248, 113, 113, 0.1);
+    color: #fca5a5;
+    font-size: 0.7rem;
+  }
+
+  .bell-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .bell-btn-ghost {
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.92);
+    }
+  }
+
+  .bell-btn-solid {
+    border: none;
+    background: #fff;
+    color: #17171b;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .bell-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bell-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+  }
+
+  .bell-arrow {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%) rotate(45deg);
+    background: var(--color-card-bg);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  /* Utility Components */
+  .gallery-item {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+
+  .input {
+    @apply block w-full border bg-[#1a1a1a] text-white text-base transition-colors duration-300 mb-3 p-3 rounded-lg border-solid border-[#333] focus:border-primary focus:outline-none;
+  }
+
+  .btn {
+    @apply no-underline inline-block transition-colors duration-200 text-white cursor-pointer px-3 py-2 rounded-sm border-0 bg-link hover:bg-primary-dark;
+  }
+
+  .section { @apply flex flex-col gap-6 text-center my-4 px-0 py-8; }
+  .container-sm { @apply w-full mx-auto px-4 max-w-[51.25rem]; }
+  .container-lg { @apply w-full mx-auto px-4 max-w-[78.125rem]; }
+
+  .s-icon {
+    @apply w-10 h-10 rounded-full bg-white border border-white/20 flex items-center justify-center transition-all duration-300;
+  }
+}
+
+/* Custom Scrollbars */
 ::-webkit-scrollbar { @apply w-2.5; }
 ::-webkit-scrollbar-track { background: black; border: 1px solid black; }
 ::-webkit-scrollbar-thumb {
@@ -103,41 +362,7 @@
   background: linear-gradient(#338dff, #ff36e6);
 }
 
-
-header { 
-  @apply text-xl flex justify-between items-center flex-wrap mt-9 mb-30 px-5 py-0 w-full max-w-full box-border; 
-}
-.left-links {
-  /* Smaller gap and horizontal scroll/wrap control for mobile */
-  @apply flex gap-2 sm:gap-3 flex-wrap items-center;
-}
-
-.link {
-  /* Scaled text size and expanded touch padding for mobile devices */
-  @apply text-[15px] sm:text-[18px] md:text-[24px] text-white transition-colors duration-500 no-underline whitespace-nowrap hover:text-indigo-500 py-1 px-1.5 sm:p-0;
-  font-family: var(--font-sans);
-}
-.link.active { @apply text-link; }
-
-.text-primary {
-    color: var(--color-primary);
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-.input {
-  @apply block w-full border bg-[#1a1a1a] text-white text-base transition-colors duration-300 mb-3 p-3 rounded-lg border-solid border-[#333] focus:border-primary focus:outline-none;
-}
-.btn {
-  @apply no-underline inline-block transition-colors duration-200 text-white cursor-pointer px-3 py-2 rounded-sm border-0 bg-link hover:bg-primary-dark;
-}
-
-.section { @apply flex flex-col gap-6 text-center my-4 px-0 py-8; }
-.container-sm { @apply w-full mx-auto px-4 max-w-[51.25rem]; }
-.container-lg { @apply w-full mx-auto px-4 max-w-[78.125rem]; }
-
-.s-icon {
-  @apply w-10 h-10 rounded-full bg-white border border-white/20 flex items-center justify-center transition-all duration-300
-}
-
+/* Media Query Visibility Helpers */
 @media (max-width: 767px) { .hidden-phone { display: none; } }
 @media (min-width: 768px) and (max-width: 1023px) { .hidden-tablet { display: none; } }
 @media (min-width: 1024px) { .hidden-desktop { display: none; } }

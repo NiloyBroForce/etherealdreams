@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Raleway } from "next/font/google";
+import { Raleway,Fraunces, Inter } from "next/font/google";
 import ClientWrapper from "@/components/Layout";
 import type { Metadata, Viewport } from "next";
 import { InstallBanners } from "@/components/Banner";
@@ -11,7 +11,8 @@ const raleway = Raleway({
 	variable: "--font-raleway", 
 	display: "swap",
 });
-
+const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-display", axes: ["opsz"] });
+  const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://etherealdreams.vercel.app"),
   title: {
@@ -72,7 +73,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { blobs } = await list();
     const imageUrls = blobs.map((blob) => blob.url);
     return (
-			<html lang="en" className={raleway.variable} suppressHydrationWarning>
+			<html lang="en" className={`${raleway.variable} ${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
 				<body suppressHydrationWarning>
           <div className="block min-h-screen overflow-x-hidden">
             <ImageWarmup imageUrls={imageUrls} />
