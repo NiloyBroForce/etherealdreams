@@ -1,6 +1,6 @@
 import MyForm from "@/components/Form"
 import { img }  from "@/data/Data"; 
-import Image from "next/image"
+import Image from "next/image";
 
 
 export const metadata = {
@@ -42,19 +42,9 @@ export const metadata = {
 		},
 };
 
-import Image from "next/image";
-
-/**
- * Fonts (add once, e.g. in app/layout.jsx):
- *
- * import { Fraunces, Inter } from "next/font/google";
- * const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-display", axes: ["opsz"] });
- * const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
- * // apply `${fraunces.variable} ${inter.variable}` on <html> or <body>
- */
 
 export default function About() {
-  return (
+  return (<div>
     <section className="relative w-full bg-[#05050a] text-white">
       <div className="grid min-h-[calc(100dvh-80px)] grid-cols-1 lg:grid-cols-[1.15fr_1px_1fr]">
         {/* Image side */}
@@ -109,5 +99,7 @@ export default function About() {
         </div>
       </div>
     </section>
+    <MyForm />
+  </div>
   );
 }
