@@ -78,7 +78,6 @@ const serwist = new Serwist({
   navigationPreload: true,
 
   runtimeCaching: [
-      ...defaultCache,
       {
         // Match Vercel Blob URLs
         matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
@@ -98,6 +97,7 @@ const serwist = new Serwist({
           ],
         }),
       },
+    ...defaultCache,
     ],
   });
 
