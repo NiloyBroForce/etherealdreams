@@ -4,7 +4,7 @@ import ClientWrapper from "@/components/Layout";
 import type { Metadata, Viewport } from "next";
 import { InstallBanners } from "@/components/Banner";
 import { ImageWarmup } from '@/components/ImageCache';
-import { list } from '@vercel/blob';
+import { getCachedBlobList } from '@/lib/blob';
 
 const raleway = Raleway({
 	subsets: ["latin"],
@@ -70,8 +70,7 @@ export const viewport:Viewport = {
 	maximumScale: 1,
 };
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { blobs } = await list();
-    const imageUrls = blobs.map((blob) => blob.url);
+    const imageUrls = await getCachedBlobList();
     return (
 			<html lang="en" className={`${raleway.variable} ${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
 				<body suppressHydrationWarning>

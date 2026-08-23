@@ -1,18 +1,43 @@
+// components/GalleryImage.jsx
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { bumpPriority } from "@/lib/backgroundCache";
 
 const GalleryImage = ({ image, onClick }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const containerRef = useRef(null);
 
   const aspectRatio = image.fldWidth / image.fldHeight;
   const src = image.link;
   const flexVal = (aspectRatio * 100).toFixed(3);
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            bumpPriority(src);
+            observer.disconnect(); // only need to bump once
+            break;
+          }
+        }
+      },
+      { rootMargin: "200px" } // bump slightly before it's actually on screen
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [src]);
+
   return (
     <div
+      ref={containerRef}
       className="gallery-item relative cursor-pointer overflow-hidden self-start align-top"
       style={{
         flexGrow: flexVal,
@@ -30,41 +55,37 @@ const GalleryImage = ({ image, onClick }) => {
     >
       <div
         className="relative w-full block leading-[0] overflow-hidden"
-        style={{
-          paddingBottom: `${(image.fldHeight / image.fldWidth) * 100}%`,
-        }}
+        style={{ paddingBottom: `${(image.fldHeight / image.fldWidth) * 100}%` }}
       >
-        {!isLoaded && (
-          <div className="absolute inset-0 bg-neutral-800 animate-pulse z-0" />
-        )}
+        {!isLoaded && <div className="absolute inset-0 bg-neutral-800 animate-pulse z-0" />}
 
-      <Image
-					src={src}
-					alt={image.title || "Artwork"}
-					width={image.fldWidth}
-					height={image.fldHeight}
-					sizes="(max-width: 768px) 50vw, 33vw"
-					loading="lazy"
-					onLoad={() => setIsLoaded(true)}
-					className={`absolute top-0 left-0 w-full h-full object-cover block m-0 p-0 transition-all duration-300 ${
-						isActive ? "scale-105" : "scale-100"
-            } ${isLoaded ? "opacity-100" : "opacity-0"}`}
-					unoptimized
-				/>
+        <Image
+          src={src}
+          alt={image.title || "Artwork"}
+          width={image.fldWidth}
+          height={image.fldHeight}
+          sizes="(max-width: 768px) 50vw, 33vw"
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+          className={`absolute top-0 left-0 w-full h-full object-cover block m-0 p-0 transition-all duration-300 ${
+            isActive ? "scale-105" : "scale-100"
+          } ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          unoptimized
+        />
 
-       <div
-					className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
-						isActive ? "opacity-100" : "opacity-0"
-					}`}
-				>
-					<h3 className="text-[clamp(1rem,4vw,1.5rem)] text-white font-semibold uppercase leading-tight mb-5">
-						{image.title}
-					</h3>
-					<div className="w-[3.125rem] h-[0.3rem] bg-cyan-400" />
-				</div>
-			</div>
-		</div>
-	);
+        <div
+          className={`absolute inset-0 z-10 bg-black/70 flex flex-col justify-center items-center px-10 py-5 text-center transition-opacity duration-900 ${
+            isActive ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <h3 className="text-[clamp(1rem,4vw,1.5rem)] text-white font-semibold uppercase leading-tight mb-5">
+            {image.title}
+          </h3>
+          <div className="w-[3.125rem] h-[0.3rem] bg-cyan-400" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default GalleryImage;
