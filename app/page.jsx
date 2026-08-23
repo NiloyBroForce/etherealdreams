@@ -34,6 +34,8 @@ export const metadata = {
 	},
 };
 
+export const dynamic = 'force-static';
+export const revalidate = 300;
 
 export default function HomePage() {
 	const paintingsWithUrls = canvasData.map(img => ({ ...img, link: getPaintUrl(img.link) }));

@@ -22,6 +22,11 @@ const withSerwist = withSerwistInit({
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
   disable: process.env.NODE_ENV === "development", // Disable caching in local development
+  additionalPrecacheEntries: [
+    { url: '/', revision: null },
+    { url: '/car-canvas', revision: null },
+    { url: '/About', revision: null },
+  ],
 });
 
 export default withSerwist(nextConfig);

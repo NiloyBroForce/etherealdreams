@@ -42,6 +42,8 @@ export const metadata = {
 		},
 };
 
+export const dynamic = 'force-static';
+export const revalidate = 300;
 
 export default function About() {
   return (<div>
@@ -51,17 +53,16 @@ export default function About() {
         <div className="relative h-[55vh] lg:h-full">
           <Image
             src={img()}
-            alt="Ethereal Sky"
+            alt="Sky image"
             fill
             unoptimized
             priority
+            sizes="100vw"
             className="object-cover"
           />
-          {/* fade into the canvas so the split feels stitched, not cropped */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#05050a] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#05050a]/90" />
         </div>
 
-        {/* Signature divider — the site's own gradient bar, reused as structure */}
         <div className="relative hidden lg:block">
           <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-cyan-300 via-fuchsia-500 to-transparent" />
           <span
@@ -71,7 +72,6 @@ export default function About() {
           </span>
         </div>
 
-        {/* Statement side */}
         <div className="flex flex-col justify-center gap-5 px-6 py-12 sm:px-12 lg:px-16 lg:py-12">
           <span className="text-[11px] font-[family-name:var(--font-body)] uppercase tracking-[0.35em] text-cyan-300/80">
             About

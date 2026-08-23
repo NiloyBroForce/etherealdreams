@@ -32,6 +32,9 @@ export const metadata = {
 	},
 };
 
+export const dynamic = 'force-static';
+export const revalidate = 300;
+
 export default function CarCanvasPage() {
 	const carsWithUrls = carData.map(img => ({ ...img, link: getCarsUrl(img.link) }));
 	return <Index Data={carsWithUrls}/>;

@@ -78,27 +78,34 @@ const serwist = new Serwist({
   navigationPreload: true,
 
   runtimeCaching: [
-      {
-        // Match Vercel Blob URLs
-        matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
-        handler: new NetworkFirst({
-          cacheName: 'vercel-blob-images',
-          networkTimeoutSeconds: 3, 
-          plugins: [
-            {
-              // Cache HTTP 0 (opaque CORS) and HTTP 200 responses
-              cacheWillUpdate: async ({ response }) => {
-                if (response && (response.status === 200 || response.status === 0)) {
-                  return response;
-                }
-                return null;
-              },
+    {
+      // Match Vercel Blob URLs
+      matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
+      handler: new NetworkFirst({
+        cacheName: 'vercel-blob-images',
+        networkTimeoutSeconds: 3,
+        plugins: [
+          {
+            // Cache HTTP 0 (opaque CORS) and HTTP 200 responses
+            cacheWillUpdate: async ({ response }) => {
+              if (response && (response.status === 200 || response.status === 0)) {
+                return response;
+              }
+              return null;
             },
-          ],
-        }),
-      },
+          },
+        ],
+      }),
+    },
+    {
+      matcher: ({ request }) => request.mode === 'navigate',
+      handler: new NetworkFirst({
+        cacheName: 'pages',
+        networkTimeoutSeconds: 3,
+      }),
+    },
     ...defaultCache,
-    ],
-  });
+  ],
+});
 
 serwist.addEventListeners();
