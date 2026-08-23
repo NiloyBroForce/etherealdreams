@@ -1,4 +1,4 @@
-// components/GalleryImage.jsx
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -23,12 +23,12 @@ const GalleryImage = ({ image, onClick }) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             bumpPriority(src);
-            observer.disconnect(); // only need to bump once
+            observer.disconnect(); 
             break;
           }
         }
       },
-      { rootMargin: "200px" } // bump slightly before it's actually on screen
+      { rootMargin: "200px" }
     );
 
     observer.observe(el);
