@@ -3,7 +3,7 @@
 import { defaultCache } from "@serwist/next/worker";
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
 import {
-  CacheFirst,
+  NetworkFirst,
   Serwist,
 } from "serwist";
 
@@ -73,7 +73,6 @@ self.addEventListener("notificationclick", (event) => {
 
 const serwist = new Serwist({
   precacheEntries: self.__SW_MANIFEST,
-
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
@@ -83,8 +82,9 @@ const serwist = new Serwist({
       {
         // Match Vercel Blob URLs
         matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
-        handler: new CacheFirst({
+        handler: new NetworkFirst({
           cacheName: 'vercel-blob-images',
+          networkTimeoutSeconds: 3, 
           plugins: [
             {
               // Cache HTTP 0 (opaque CORS) and HTTP 200 responses
