@@ -751,5 +751,5 @@ export const getPaintUrl = (link) =>
 
 export const getImg = ()=>`${BASE}/preview.jpg`;
 
-export const img=()=>`${BASE}/Atmosphere.jpg`;
+export const img=()=>`${BASE}/Atmosphere.webp`;
 
