@@ -75,33 +75,27 @@ const serwist = new Serwist({
   precacheEntries: self.__SW_MANIFEST,
   skipWaiting: true,
   clientsClaim: true,
-  navigationPreload: true,
+  // 1. Disable navigationPreload to prevent offline fetch errors
+  navigationPreload: false,
 
   runtimeCaching: [
     {
       // Match Vercel Blob URLs
       matcher: /^https:\/\/.*\.public\.blob\.vercel-storage\.com\/.*$/,
       handler: new NetworkFirst({
-        cacheName: 'vercel-blob-images',
+        cacheName: "vercel-blob-images",
         networkTimeoutSeconds: 3,
         plugins: [
           {
-            // Cache HTTP 0 (opaque CORS) and HTTP 200 responses
             cacheWillUpdate: async ({ response }) => {
-              if (response && (response.status === 200 || response.status === 0)) {
+              // 2. Only cache valid 200 responses (avoid opaque response quota bloating)
+              if (response && response.status === 200) {
                 return response;
               }
               return null;
             },
           },
         ],
-      }),
-    },
-    {
-      matcher: ({ request }) => request.mode === 'navigate',
-      handler: new NetworkFirst({
-        cacheName: 'pages',
-        networkTimeoutSeconds: 3,
       }),
     },
     ...defaultCache,
