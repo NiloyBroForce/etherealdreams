@@ -88,14 +88,16 @@ export default function MyForm() {
 						/>
 					</label>
 					<label className="text-primary">
-						Your Email
-						<input
-							name="Email"
-							className="input"
-							placeholder="Email"
-							onChange={handleChange}
-							value={Email}
-						/>
+	Your Email
+	<input
+		type="email"
+		name="Email"
+		className="input"
+		placeholder="Email"
+		onChange={handleChange}
+		value={Email}
+		required
+	/>
 					</label>
 					<label className="text-primary">
 						Message
