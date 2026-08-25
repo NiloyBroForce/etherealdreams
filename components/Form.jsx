@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import Script from "next/script";
 
 export default function MyForm() {
-    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_SECRET_KEY;
+    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_SITE_KEY;
     const [formData, setFormData] = useState({
         Name: "",
         Email: "",
