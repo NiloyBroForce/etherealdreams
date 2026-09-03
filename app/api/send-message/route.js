@@ -12,7 +12,7 @@ export async function POST(request) {
 
         const API_KEY = process.env.RECAPTCHA_ENTERPRISE_API_KEY;
         const PROJECT_ID = process.env.PROJECT_ID;
-        const SITE_KEY = process.env.SECRET_KEY; 
+        const SITE_KEY = process.env.NEXT_PUBLIC_SITE_KEY; 
 
         const assessmentRes = await fetch(
             `https://recaptchaenterprise.googleapis.com/v1/projects/${PROJECT_ID}/assessments?key=${API_KEY}`,
