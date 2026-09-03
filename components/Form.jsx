@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import Script from "next/script";
 
 export default function MyForm() {
-    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_SECRET_KEY;
+    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_SITE_KEY;
     const [formData, setFormData] = useState({
         Name: "",
         Email: "",
@@ -88,14 +88,16 @@ export default function MyForm() {
 						/>
 					</label>
 					<label className="text-primary">
-						Your Email
-						<input
-							name="Email"
-							className="input"
-							placeholder="Email"
-							onChange={handleChange}
-							value={Email}
-						/>
+	Your Email
+	<input
+		type="email"
+		name="Email"
+		className="input"
+		placeholder="Email"
+		onChange={handleChange}
+		value={Email}
+		required
+	/>
 					</label>
 					<label className="text-primary">
 						Message
