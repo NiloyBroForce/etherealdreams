@@ -1,8 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "app.vercel.etherealdreams.twa",
-        "sha256_cert_fingerprints": ["35:66:FD:31:31:6E:B4:A3:C9:04:E7:36:7C:B5:00:21:19:43:CF:69:07:A0:BB:B3:82:F5:CA:66:A8:8C:CF:71"]
-      }
-    }]
